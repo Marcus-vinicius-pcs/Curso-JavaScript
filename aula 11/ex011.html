@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <h1>Sistema de detecção de nacionalidades</h1>
+    País em que nasceu: <input type="text" name="txtnac" id="txtnac">
+    <input type="button" value="verificar" onclick="detec()">
+    <div id="res">
+
+
+    </div>
+    <script>
+        function detec() {
+            var nacionalidade = document.getElementById('txtnac').value.toLowerCase()
+            var res = document.getElementById('res')
+            if(nacionalidade == 'brasil'){
+                res.innerHTML = `<p>Você é <strong>brasileiro</strong></p>`
+            } else{
+                res.innerHTML = `<p>Você é <strong>estrangeiro</strong></p>`
+            }
+        }
+    </script>
+</body>
+</html>

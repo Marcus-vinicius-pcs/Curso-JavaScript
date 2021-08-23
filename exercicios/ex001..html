@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(250, 206, 110);
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: rgb(97, 96, 96) 5px 5px 10px;
+        }
+        header{
+            color: white;
+        }
+        footer{
+            color: white;
+            font-style: italic;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        div{
+            padding: 8px;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+    <section>
+        <div id="msg">
+            Aqui vai a mensagem...
+        </div>
+        <div id="foto">
+            <img id="imagem" src="dia.jpg" alt="foto-dia">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Marcus Vinicius</p>
+    </footer>
+
+    <script>
+        function carregar(){
+            var hora = new Date().getHours()  
+            var msg = document.getElementById('msg')
+            var img = document.getElementById('imagem')
+            msg.innerHTML = `Agora são ${hora} horas`
+            if(hora >=0 && hora<12){
+                img.src = 'dia.jpg'
+                document.body.style.backgroundColor = 'blue'
+            } else if (hora >= 12 && hora < 18) {
+                img.src = 'tarde.jpg'
+                document.body.style.backgroundColor = 'orange'
+            } else {
+                img.src = 'noite.jpg'
+                document.body.style.backgroundColor = 'grey'
+            }
+        }
+    </script>
+</body>
+</html>

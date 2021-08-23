@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(250, 206, 110);
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: rgb(97, 96, 96) 5px 5px 10px;
+        }
+        header{
+            color: white;
+        }
+        footer{
+            color: white;
+            font-style: italic;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        div{
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Verificador de idade</h1></header>
+    <section>
+        <div>
+            <p>Ano de nascimento: <input type="number" name="txtano" id="txtano" min="0"></p>
+            <p>Sexo: <input type="radio" name="radsex" id="masc">
+            <label for="masc">Masculino</label>
+            <input type="radio" name="radsex" id="fem">
+            <label for="fem">Feminino</label>
+        </p>
+        <p>
+            <input type="button" value="verificar" onclick="verificar()">
+        </p>
+        </div>
+        <div id="resultado">
+            Preencha os dados acima para ver o resultado!
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Marcus Vinicius</p>
+    </footer>
+    <script>
+        function verificar(){
+            var ano_atual = new Date().getFullYear()
+            var ano_nascimento = document.getElementById('txtano')
+            
+        }
+    </script>
+</body>
+</html>

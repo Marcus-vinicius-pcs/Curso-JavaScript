@@ -58,9 +58,23 @@
     </footer>
     <script>
         function verificar(){
-            var ano_atual = new Date().getFullYear()
-            var ano_nascimento = document.getElementById('txtano')
-            
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fano = document.getElementById('txtano')
+            var res = document.getElementById('resultado')
+            if(fano.value.length == 0 || fano.value > ano){
+                alert('Verifique os dados e tente novamente!')
+            } else {
+                var fsex = document.getElementsByName('radsex')
+                var idade = ano - Number(fano.value)
+                var genero = ''
+                if(fsex[0].checked) {
+                    genero = 'Homem'
+                } else {
+                    genero = 'Mulher'
+                }
+                res.innerHTML = `Detectamos ${genero} que completou, ou completará, ${idade} anos em ${ano}`
+            }
         }
     </script>
 </body>

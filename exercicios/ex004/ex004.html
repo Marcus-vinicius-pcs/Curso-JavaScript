@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(250, 206, 110);
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: rgb(97, 96, 96) 5px 5px 10px;
+        }
+        header{
+            color: white;
+        }
+        footer{
+            color: white;
+            font-style: italic;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        div{
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Tabuada</h1></header>
+    <section>
+        <div>
+         <p>Número: <input type="number" name="num" id="txtn"></p>
+         <p>
+             <input type="button" value="Gerar tabuada" onclick="gerarTabuada()">
+         </p>
+        </div>
+        <div id="res">
+           <select name="tabuada" id="seltab" size="10"></select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Marcus Vinicius</p>
+    </footer>
+    <script>
+        function gerarTabuada(){
+            var num = document.getElementById('txtn')
+            var tab = document.getElementById('seltab')
+            if(num.value.length == 0){
+                alert('Por favor, digite um numero!')
+            } else {
+                var n = Number(num.value)
+                tab.innerHTML = ''
+                for(var c = 1; c<=10; c++){
+                    var item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${n*c}`
+                    item.value = `tab${c}`
+                    tab.appendChild(item)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

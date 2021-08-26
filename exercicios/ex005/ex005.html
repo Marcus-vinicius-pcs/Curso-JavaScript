@@ -43,7 +43,7 @@
         <input type="button" value="adicionar" onclick="adicionar()">
         
         <br><hr><select name="flista" id="flista" size="6"></select>
-        <input type="button" value="finalizar" onclick="resultado()">
+        <input type="button" value="finalizar" onclick="finalizar()">
         </div>
         <div id="res">
            
@@ -80,9 +80,40 @@
                 let item = document.createElement('option')
                 item.text = `valor ${num.value} adicionado;`
                 lista.appendChild(item)
+                res.innerHTML = ''
              } else {
                  alert('Valor inválido ou já encontrado na lista')
              }
+             num.value = ''
+             num.focus()
+        }
+
+        function finalizar(){
+            if (valores.length == 0){
+                alert("[ERRO] Lista vazia")
+            } else {
+                let tot = valores.length
+                let maior = valores[0]
+                let menor = valores[0]
+                let soma = 0
+                let media = 0
+                for(let i in valores){
+                    soma += valores[i]
+                    if(valores[i] > maior){
+                        maior = valores[i]
+                    }
+                    if(valores[i] < menor){
+                        menor = valores[i]
+                    } 
+                } 
+                media = soma / tot
+                res.innerHTML = ''
+                res.innerHTML += `<p>Ao todo tem ${tot} elementos na lista</p>`
+                res.innerHTML += `<p>O maior valor informado foi ${maior}</p>`
+                res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`
+                res.innerHTML += `<p>A soma entre todos os valores é ${soma}</p>`
+                res.innerHTML += `<p>A media desses valores é ${media}</p>`
+            }
         }
     </script>
 </body>

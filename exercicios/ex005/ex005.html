@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(250, 206, 110);
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            width: 500px;
+            margin: auto;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: rgb(97, 96, 96) 5px 5px 10px;
+        }
+        header{
+            color: white;
+        }
+        footer{
+            color: white;
+            font-style: italic;
+        }
+        div{
+            padding: 8px;
+        }
+        select#flista {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Analisador de números</h1></header>
+    <section>
+        <div>
+        Um número entre 1 e 100: 
+        <input type="number" name="fnum" id="fnum">
+        <input type="button" value="adicionar" onclick="adicionar()">
+        
+        <br><hr><select name="flista" id="flista" size="6"></select>
+        <input type="button" value="finalizar" onclick="resultado()">
+        </div>
+        <div id="res">
+           
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Marcus Vinicius</p>
+    </footer>
+    <script>
+        let num = document.getElementById('fnum')
+        let lista = document.getElementById('flista')
+        let res = document.getElementById('res')
+        let valores = []
+
+        function isNumero(n){
+            if (Number(n) >= 1 && Number(n) <= 100){
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function inlista(n, l){
+            if(l.indexOf(Number(n)) != -1) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function adicionar(){
+             if (isNumero(num.value) && !inlista(num.value, valores)) {
+                valores.push(Number(num.value))
+                let item = document.createElement('option')
+                item.text = `valor ${num.value} adicionado;`
+                lista.appendChild(item)
+             } else {
+                 alert('Valor inválido ou já encontrado na lista')
+             }
+        }
+    </script>
+</body>
+</html>

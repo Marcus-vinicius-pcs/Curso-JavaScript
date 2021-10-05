@@ -1,3 +1,3 @@
-const fs = require('fs')
+const getNotes = require('./notes')
 
-fs.appendFileSync('notas.txt', 'Estou aprendndo a programar para Back-End\n')
+console.log(getNotes())
